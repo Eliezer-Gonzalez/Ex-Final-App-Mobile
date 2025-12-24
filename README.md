@@ -114,7 +114,6 @@ npm install
 ```bash
 npx expo start
 ```
-
 5. Escanear el código QR con Expo Go (Android/iOS) o presionar:
    - `a` para abrir en emulador Android
    - `i` para abrir en simulador iOS
@@ -127,11 +126,28 @@ npx expo start
 
 ---
 
-## Pruebas y comprobaciones rápidas
+### Casos de prueba principales:
 
-- Crear una tarea con foto: toma una foto, acepta permisos de ubicación si se solicitan, guarda la tarea. La tarea guardada debe incluir `photoUri` y `coordinates` (si se pudo obtener).
-- Crear una tarea sin foto: escribe el título y guarda; la tarea no debe solicitar permisos de ubicación ni incluir coordenadas.
-- Eliminar una tarea: al eliminarla, cerrar sesión y volver a iniciar sesión, asi como cerrar y abrir la app, mantiene la lista actualizada (las tareas eliminadas no reaparecerán).
+1. **Crear tarea con foto:**
+   - Tomar una foto usando la cámara
+   - Aceptar permisos de ubicación cuando se soliciten
+   - Verificar que se guarden `photoUri` y `coordinates`
+
+2. **Crear tarea sin foto:**
+   - Escribir título y guardar
+   - Verificar que NO se soliciten permisos de ubicación
+   - Confirmar que NO se incluyan coordenadas
+
+3. **Persistencia de datos:**
+   - Eliminar una tarea
+   - Cerrar sesión y volver a iniciar
+   - Cerrar y abrir la app
+   - Verificar que las tareas eliminadas no reaparezcan
+
+4. **Marcar como completada:**
+   - Marcar tarea como completada
+   - Verificar estilo tachado en texto
+   - Verificar opacidad reducida en imagen
 
 ---
 
