@@ -13,6 +13,7 @@ import {
 } from "expo-location";
 import { useState } from "react";
 import {
+  ActivityIndicator,
   Alert,
   Dimensions,
   Image,
@@ -166,6 +167,11 @@ export default function NewTask({ onClose, onTaskCreated }: NewTaskProps) {
 
   return (
     <View style={[styles.container, { height: screenHeight }]}>
+      {isCApturingPhoto && (
+        <View style={styles.loadingOverlay}>
+          <ActivityIndicator size="large" color="#0dcc2dff" />
+        </View>
+      )}
       <Title style={{ alignSelf: "center", marginBottom: 15 }}>
         Agregar nueva Tarea
       </Title>
@@ -275,5 +281,17 @@ const styles = StyleSheet.create({
   },
   footerButtons: {
     gap: 10,
+  },
+  loadingOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.3)",
+    zIndex: 1000,
+    elevation: 10,
   },
 });
