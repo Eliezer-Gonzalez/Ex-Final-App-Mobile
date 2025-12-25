@@ -4,7 +4,7 @@ import NewTask from "@/components/ui/new-task";
 import Title from "@/components/ui/title";
 import useTodoList from "@/hooks/use-todo-list";
 import { LinearGradient } from "expo-linear-gradient";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
@@ -37,7 +37,11 @@ export default function HomeScreen() {
           {emailName}
         </Text>
       </Title>
-      {loading && <Title>Cargando...</Title>}
+      {loading && (
+        <View style={styles.loadingOverlay}>
+          <ActivityIndicator size="large" color="#0dcc2dff" />
+        </View>
+      )}
       <LinearGradient
         colors={["transparent", "#0dcc2dff", "transparent"]}
         locations={[0, 0.5, 1]}
@@ -73,6 +77,17 @@ const styles = StyleSheet.create({
     padding: 15,
     flex: 1,
     backgroundColor: "#000000ff",
+  },
+  loadingOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.3)",
+    zIndex: 1,
   },
   newTaskButton: {
     position: "absolute",

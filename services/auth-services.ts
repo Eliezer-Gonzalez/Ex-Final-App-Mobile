@@ -28,7 +28,7 @@ export default function getAuthService() {
       return response.data;
     } catch (error) {
       if (isAxiosError(error) && error.response) {
-        if (error.response.status === 401) {
+        if (error.response.status === 401 || error.response.status === 400) {
           throw new Error("Las credenciales ingresadas no son válidas.");
         }
         if (error.response.status === 503) {
@@ -54,6 +54,9 @@ export default function getAuthService() {
       if (isAxiosError(error) && error.response) {
         if (error.response.status === 409) {
           throw new Error("Usuario existente, utiliza otro.");
+        }
+        if (error.response.status === 400) {
+          throw new Error("El Email debe ser válido y la contraseña mayor a 8 caracteres.");
         }
       }
       throw new Error(
