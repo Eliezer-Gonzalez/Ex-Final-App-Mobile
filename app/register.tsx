@@ -54,17 +54,17 @@ export default function RegisterScreen() {
             <Text style={styles.label}>Email:</Text>
             <TextInput
               style={styles.input}
-              placeholder="Email"
+              placeholder="Inserte su Email"
               placeholderTextColor="#ffffff"
               onChangeText={setEmail}
             />
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Password:</Text>
+            <Text style={styles.label}>Contraseña:</Text>
             <TextInput
               style={styles.input}
-              placeholder="Insert Password"
+              placeholder="Inserte su Contraseña"
               placeholderTextColor="#ffffff"
               secureTextEntry
               onChangeText={setPassword}
@@ -80,7 +80,6 @@ export default function RegisterScreen() {
           />
 
           <Button
-            type="outlined"
             style={[styles.button, { marginTop: 8 }]}
             onPress={handleBack}
             text="Volver al Login"

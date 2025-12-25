@@ -12,13 +12,15 @@ export default function HomeScreen() {
     logout();
     router.replace("/login");
   };
+    const name = user?.email?.split("@")[0];
+    const emailName = name ? name.charAt(0).toUpperCase() + name.slice(1) : "Usuario";
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>
         {" "}
         Perfil de:{" "}
         <Text style={{ color: "#0dcc2dff", fontWeight: "bold" }}>
-          {user?.email}
+          {emailName}
         </Text>
       </Text>
       <LinearGradient

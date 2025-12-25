@@ -46,7 +46,7 @@ export default function LoginScreen() {
           <Text style={styles.title}>Login</Text>
           {/* Username */}
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Email:</Text>
+            <Text style={styles.label}>Inserte su Email:</Text>
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -57,10 +57,10 @@ export default function LoginScreen() {
 
           {/* Password */}
           <View style={styles.inputContainer}>
-            <Text style={styles.label}>Password:</Text>
+            <Text style={styles.label}>Contraseña:</Text>
             <TextInput
               style={styles.input}
-              placeholder="Insert Password"
+              placeholder="Inserte su Contraseña"
               placeholderTextColor="#ffffff"
               secureTextEntry
               onChangeText={handelPasswordChange}
@@ -74,10 +74,9 @@ export default function LoginScreen() {
             text="Login"
           />
           <Button
-            type="outlined"
-            style={[styles.button, { marginTop: 8 }]}
+            style={[styles.button, { marginTop: 8 ,}]}
             onPress={handelRegister}
-            text="Registrar nueva cuenta"
+            text="Registrarse"
           />
         </BlurView>
       </View>

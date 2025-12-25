@@ -15,7 +15,7 @@ export default function Button ({
     text,
     onPress,
     style,
-        textStyle,
+    textStyle,
     disabled = false,
     loading = false,
 }: ButtonProps ) {

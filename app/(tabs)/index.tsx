@@ -19,6 +19,9 @@ export default function HomeScreen() {
     handleNewTaskClose,
     user } = useTodoList();
 
+    const name = user?.email?.split("@")[0];
+    const emailName = name ? name.charAt(0).toUpperCase() + name.slice(1) : "Usuario";
+
   if (creatingNew) {
     return (
       <SafeAreaView style={styles.container}>
@@ -31,7 +34,7 @@ export default function HomeScreen() {
       <Title style={{ alignSelf: "center", marginBottom: 15 }}>
         Bienvenido a tu Todo List,{" "}
         <Text style={{ fontWeight: "bold", color: "#1bf03eff" }}>
-          {user?.email}
+          {emailName}
         </Text>
       </Title>
       {loading && <Title>Cargando...</Title>}
